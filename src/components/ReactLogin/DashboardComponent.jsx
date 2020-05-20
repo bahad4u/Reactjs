@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+<<<<<<< HEAD
 import LoadingSpinner from './LoadingSpinner';
 export class DashboardComponent extends Component {
     constructor(props){
@@ -26,6 +27,9 @@ console.log("inside setinterafce");
           console.log("dashboard interface",this.state.dashboardInterface)
             }
 
+=======
+export class DashboardComponent extends Component {
+>>>>>>> 1e276f1a9effd5aafd01b9f72374aaa100cfafbc
     render() {
         return (<>
         <div className="DashboardComponent">
@@ -33,7 +37,11 @@ console.log("inside setinterafce");
 
             <h1>Welcome to ADMD Dashboard </h1>
             <br></br>
+<<<<<<< HEAD
             <p>Under Constructions <LoadingSpinner className="">{this.state.dashboardInterface}</LoadingSpinner></p>
+=======
+            <p>Under Constructions Loading.....</p>
+>>>>>>> 1e276f1a9effd5aafd01b9f72374aaa100cfafbc
 
         </div>
         </>
