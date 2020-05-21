@@ -23,7 +23,8 @@ const fields = [
  
 ];
   return (
-  <div className="container">Enter search keyword to filter
+  <div className="container">
+	  <h1>Jenkins Dashboard</h1>
 <FilterableTable
 	namespace="filterabletable"
 	displayName ="Filter"

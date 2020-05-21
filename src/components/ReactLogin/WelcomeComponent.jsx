@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-<<<<<<< HEAD
 import admdservice from '../api/admdservice';
 export class WelcomeComponent extends Component {
 constructor(props){
@@ -13,15 +12,11 @@ constructor(props){
         this.handleSuccessfulResponse = this.handleSuccessfulResponse.bind(this)
 }
    
-=======
-export class WelcomeComponent extends Component {
->>>>>>> 1e276f1a9effd5aafd01b9f72374aaa100cfafbc
     render() {
         return ( <>
             <h1>Welcome!</h1>
             <div className="container">
             Welcome {this.props.match.params.name} You can manage your Dashboard <Link to="/dashboard">here</Link>.
-<<<<<<< HEAD
      
             you have selected<Link to="/Jenkins">{this.props.match.params.interface}</Link> {this.props.match.params.interface}
             </div>
@@ -56,9 +51,4 @@ export class WelcomeComponent extends Component {
         console.log(error.response)
         this.setState({welcomeMessage: error.response.data.message})
     }
-=======
-            </div>
-        </>);
-    }
->>>>>>> 1e276f1a9effd5aafd01b9f72374aaa100cfafbc
 }

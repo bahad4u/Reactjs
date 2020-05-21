@@ -14,14 +14,9 @@ class HeaderComponent extends Component {
                 <div><a href="/" className="navbar-brand">ADMD</a></div>
                 <ul className="navbar-nav">
 
-<<<<<<< HEAD
                 {isUserLoggedIn &&<li><Link to="/home" className="nav-link">Home</Link></li>}
                 {isUserLoggedIn && <li><Link to="/dashboard" className="nav-link">Dashboard</Link></li>}
                 {isUserLoggedIn && <li><Link to="/config" className="nav-link">Configuration</Link></li>}
-=======
-                {isUserLoggedIn &&<li><Link to="/welcome" className="nav-link">Home</Link></li>}
-                {isUserLoggedIn && <li><Link to="/dashboard" className="nav-link">Dashboard</Link></li>}
->>>>>>> 1e276f1a9effd5aafd01b9f72374aaa100cfafbc
 
                 </ul>
                 <ul className="navbar-nav navbar-collapse justify-content-end">

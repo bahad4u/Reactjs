@@ -122,6 +122,12 @@ export class ConfigComponent extends Component {
     <br></br>
 {this.state.loading ? <LoadingSpinner />  : <Link to="/Jenkins">{this.state.welcomeMessage}</Link>}
 
+
+
+<br></br>
+                   
+                  
+                  
 </div>
 
 
