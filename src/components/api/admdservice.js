@@ -12,7 +12,7 @@ executeservicepath()
 }
 executeHelloWorldPathVariableService(name) {
     //console.log('executed service')
-    return axios.get(`http://localhost:8096/hello-world/path-variable/${name}`);        
+    return axios.get(`http://localhost:8009/hello-world/path-variable/${name}`);        
 }
 }
 

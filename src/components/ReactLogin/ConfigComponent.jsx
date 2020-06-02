@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import admdservice from '../api/admdservice';
 import { Link } from 'react-router-dom';
 import LoadingSpinner from './LoadingSpinner'
+import UserDataService from '../api/UserDataService';
 //import { DashboardComponent } from './DashboardComponent';
 //import  DashboardComponent  from './DashboardComponent.jsx';
 
@@ -19,10 +20,12 @@ export class ConfigComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            id: this.props.match.params.id,
             welcomeMessage : '',
             interface: ``,
             loading:false,
-            incorrect:"hello selected incorrect"
+            incorrect:"hello selected incorrect",
+            username:this.props.match.params.name
         
 
         };
@@ -44,17 +47,48 @@ export class ConfigComponent extends Component {
        
     }
     submitClicked= () => {
+        let user = {
+        id:this.state.id,
+        message:`y`,
+            username:this.state.username,
+            selectedInterface: this.state.interface,
+            done:true
+
+        }
         console.log(this.state);
       //(<DashboardComponent configInterface={this.state.interface}/>)
         this.setState({ loading: true }, () => {
         admdservice.executeHelloWorldPathVariableService(this.state.interface)
         .then(
                   
-            response => this.setState({
+            (response )=>{ this.setState({
                 loading: false,
-                welcomeMessage: response.data.message,
+                welcomeMessage: response.data.message
                 
-            }));
+            })
+console.log(user)
+
+if (this.state.id === null) {
+    UserDataService.createUser(this.state.username,user)
+        .then((response) => {
+            console.log(response.data)
+        })
+} else {
+    UserDataService.updateUser(this.state.username,this.state.id,user)
+        .then((response) => {
+            console.log(response.data)
+        })
+}
+
+            UserDataService.updateUser(this.state.username,this.state.id,user)
+                    .then(response => {
+                        console.log(response.data)
+                    })
+            
+                 } )
+            .catch(
+                error => this.handleError(error)
+            )
         });
         // if(!this.state.loading && this.state.interface==="Jenkins")
         //             this.props.history.push(`/Jenkins`);
@@ -85,7 +119,14 @@ export class ConfigComponent extends Component {
     }
     handleError(error) {
         console.log(error.response)
-        this.setState({welcomeMessage: error.response.data.message})
+        let errorMessage = '';
+        if (error.message)
+            errorMessage += error.message
+        if (error.response && error.response.data) {
+            errorMessage += error.response.data.message
+        }
+        this.setState({ welcomeMessage: errorMessage })
+    
     }
     render() {
        
@@ -97,14 +138,13 @@ export class ConfigComponent extends Component {
            <br></br>
            <br></br>
            <br></br>
-           <p>Please select the Interface </p>
+           <p>	Please choose the metrics to Configure</p>
          
                     
                     <select name="interface" value={this.state.interface} onChange={this.handleChange} placeholder="Select a Interface">
-                        <option value="SONAR">SONAR     </option>
-                        <option value="Jenkins">Jenkins     </option>
-                        <option value="V1">Version1      </option>
-                        <option value="Splunk">Splunk       </option>
+                        <option value="SONAR">Code Quality     </option>
+                        <option value="Jenkins">Dev-ops     </option>
+                                      <option value="V1_VELOCITY_METRICS">Version 1 Metrics       </option>
                     </select>
 
 
@@ -120,7 +160,7 @@ export class ConfigComponent extends Component {
 
 <div className="container">
     <br></br>
-{this.state.loading ? <LoadingSpinner />  : <Link to="/Jenkins">{this.state.welcomeMessage}</Link>}
+{this.state.loading ? <LoadingSpinner />  :<Link to={`/dashboard/${this.state.interface}`}>{this.state.welcomeMessage}</Link>}
 
 
 

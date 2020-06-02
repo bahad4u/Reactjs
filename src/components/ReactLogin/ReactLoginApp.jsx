@@ -26,11 +26,13 @@ class ReactLoginApp extends Component{
                 <Route path="/" exact component={Home}></Route>
                 <Route path="/home" exact component={Home}></Route>
                 <Route path="/login" component={LoginComponent}></Route>
+                <AuthenticatedRoute path="/dashboard" component={JenkinsList}></AuthenticatedRoute>
+                
                 <AuthenticatedRoute path="/welcome/:name/:interface" component={WelcomeComponent}></AuthenticatedRoute>
-                <AuthenticatedRoute path="/dashboard" component={DashboardComponent}></AuthenticatedRoute>
+                <AuthenticatedRoute path="/dashboard/:interface" component={DashboardComponent}></AuthenticatedRoute>
                 <AuthenticatedRoute path="/logout" component={LogoutComponent}></AuthenticatedRoute>
                 <AuthenticatedRoute path="/Jenkins" component={JenkinsList}></AuthenticatedRoute>
-                <AuthenticatedRoute path="/config/:name" component={ConfigComponent}></AuthenticatedRoute>
+                <AuthenticatedRoute path="/config/:name/:id" component={ConfigComponent}></AuthenticatedRoute>
                 <AuthenticatedRoute path="/config" component={ConfigComponent}></AuthenticatedRoute>
                 
                 <Route  component={ErrorComponent}></Route>

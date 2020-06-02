@@ -34,12 +34,12 @@ const fields = [
 	autofocusFilter ="true"
 	emptyDisplay ="hello"
 	pagerTopClassName="changepageup"
-	recordCountName ="record fetched"
-	recordCountNamePlural= "records fetched"
+	recordCountName ="record found"
+	recordCountNamePlural= "records found"
 	pagerBottomClassName="changepagedown"
 	pagerTitles={{ first: "<", last: ">" , next:''}}
-    noRecordsMessage="There are no people to display"
-    noFilteredRecordsMessage="No people match your filters!" />
+    noRecordsMessage="There are no records to display"
+    noFilteredRecordsMessage="No data matches with the filters!" />
 	<br></br>
 	<br></br>
 
