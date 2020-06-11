@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 //import LoadingSpinner from './LoadingSpinner';
 import JenkinsList from '../interface/JenkinsList';
+//import ChartList from '../interface/ChartList';
 //const {dashboardInterface1} = this.props.location.state
 export class DashboardComponent extends Component {
     constructor(props){
@@ -33,7 +34,8 @@ console.log("inside setinterafce");
         console.log("dashboard interface",this.props.match.params.interface)
         return (<>
         <div className="DashboardComponent">
-           {this.state.dashboardInterface==="Jenkins" && <JenkinsList />}
+         {this.state.dashboardInterface==="Jenkins" && <JenkinsList />} 
+        
           
             {/* <h1>Welcome to ADMD Dashboard </h1>
             <br></br>

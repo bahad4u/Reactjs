@@ -3,6 +3,7 @@ import admdservice from '../api/admdservice';
 import { Link } from 'react-router-dom';
 import LoadingSpinner from './LoadingSpinner'
 import UserDataService from '../api/UserDataService';
+import './bootstrap.css';
 //import { DashboardComponent } from './DashboardComponent';
 //import  DashboardComponent  from './DashboardComponent.jsx';
 
@@ -41,7 +42,7 @@ export class ConfigComponent extends Component {
    
     handleChange(event) {
         this.setState({
-            [event.target.name]: event.target.value
+            interface: event.target.value
         });
         console.log(this.state.interface)
        
@@ -51,7 +52,7 @@ export class ConfigComponent extends Component {
         id:this.state.id,
         message:`y`,
             username:this.state.username,
-            selectedInterface: this.state.interface,
+            description: this.state.interface,
             done:true
 
         }
@@ -68,7 +69,7 @@ export class ConfigComponent extends Component {
             })
 console.log(user)
 
-if (this.state.id === null) {
+if (this.state.id === "null") {
     UserDataService.createUser(this.state.username,user)
         .then((response) => {
             console.log(response.data)
@@ -80,10 +81,10 @@ if (this.state.id === null) {
         })
 }
 
-            UserDataService.updateUser(this.state.username,this.state.id,user)
-                    .then(response => {
-                        console.log(response.data)
-                    })
+            // UserDataService.updateUser(this.state.username,this.state.id,user)
+            //         .then(response => {
+            //             console.log(response.data)
+            //         })
             
                  } )
             .catch(
@@ -133,7 +134,7 @@ if (this.state.id === null) {
         return (
             <>
             <div className="container">
-           <b> Welcome {this.props.match.params.name}</b>
+           {/* {!this.state.id && <b> Welcome {this.props.match.params.name}</b>} */}
            
            <br></br>
            <br></br>
@@ -141,10 +142,11 @@ if (this.state.id === null) {
            <p>	Please choose the metrics to Configure</p>
          
                     
-                    <select name="interface" value={this.state.interface} onChange={this.handleChange} placeholder="Select a Interface">
+                    <select name="interface" value={this.state.interface} onChange={this.handleChange} >
+                        <option default>Select</option>
                         <option value="SONAR">Code Quality     </option>
-                        <option value="Jenkins">Dev-ops     </option>
-                                      <option value="V1_VELOCITY_METRICS">Version 1 Metrics       </option>
+                        <option value="Jenkins">DevOps     </option>
+                        <option value="V1_VELOCITY_METRICS">Agile       </option>
                     </select>
 
 

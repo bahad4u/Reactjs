@@ -3,6 +3,7 @@ import React from 'react';
 import './dashboard.css';
 //import '../ReactLogin/bootstrap.css';
 import JenkinsData from '../data/jenkins.json'
+import ChartList from './ChartList.js'
 //import buttonF from './button_blue_first.png'
 
 /* eslint-disable */
@@ -46,7 +47,7 @@ const fields = [
 	<br></br>
 
 	<br></br>
-
+<ChartList></ChartList>
 	</div>);
 
 }

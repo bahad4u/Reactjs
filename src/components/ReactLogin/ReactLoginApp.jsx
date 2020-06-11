@@ -4,7 +4,8 @@ import "./Home.css";
 import "./bootstrap.css"
 import AuthenticatedRoute from './AuthenticatedRoute.jsx'
 import { LoginComponent } from './LoginComponent'
-import  HeaderComponent  from './HeaderComponent';import { FooterComponent } from './FooterComponent';
+import  HeaderComponent  from './HeaderComponent';
+//import { FooterComponent } from './FooterComponent';
 import { Home } from './Home';
 import { WelcomeComponent } from './WelcomeComponent';
 import  {DashboardComponent} from './DashboardComponent.jsx';
@@ -26,9 +27,9 @@ class ReactLoginApp extends Component{
                 <Route path="/" exact component={Home}></Route>
                 <Route path="/home" exact component={Home}></Route>
                 <Route path="/login" component={LoginComponent}></Route>
-                <AuthenticatedRoute path="/dashboard" component={JenkinsList}></AuthenticatedRoute>
+                 <AuthenticatedRoute path="/dashboard" component={JenkinsList}></AuthenticatedRoute> 
                 
-                <AuthenticatedRoute path="/welcome/:name/:interface" component={WelcomeComponent}></AuthenticatedRoute>
+                <AuthenticatedRoute path="/welcome" component={WelcomeComponent}></AuthenticatedRoute>
                 <AuthenticatedRoute path="/dashboard/:interface" component={DashboardComponent}></AuthenticatedRoute>
                 <AuthenticatedRoute path="/logout" component={LogoutComponent}></AuthenticatedRoute>
                 <AuthenticatedRoute path="/Jenkins" component={JenkinsList}></AuthenticatedRoute>
@@ -39,7 +40,7 @@ class ReactLoginApp extends Component{
                
                 </Switch>
                 
-                <FooterComponent /> 
+                {/* <FooterComponent />  */}
                </>
                 
                 
